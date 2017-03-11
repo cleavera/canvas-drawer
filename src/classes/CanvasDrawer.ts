@@ -24,6 +24,17 @@ export class CanvasDrawer implements IDrawer {
         context.stroke();
     }
 
+    public rectangle(topLeft: ICoordinate, bottomRight: ICoordinate, colour: IColour, strokeWidth: number, strokeStyle: IColour): void {
+        let context: I2dRenderingContext = this._context;
+
+        context.rect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
+        context.fillStyle = colour.hex;
+        context.fill();
+        context.lineWidth = strokeWidth;
+        context.strokeStyle = strokeStyle.hex;
+        context.stroke();
+    }
+
     public line(start: ICoordinate, end: ICoordinate, colour: IColour, strokeWidth: number): void {
         let context: I2dRenderingContext = this._context;
 

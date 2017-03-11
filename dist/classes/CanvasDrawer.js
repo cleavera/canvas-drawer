@@ -16,6 +16,15 @@ class CanvasDrawer {
         context.strokeStyle = strokeStyle.hex;
         context.stroke();
     }
+    rectangle(topLeft, bottomRight, colour, strokeWidth, strokeStyle) {
+        let context = this._context;
+        context.rect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
+        context.fillStyle = colour.hex;
+        context.fill();
+        context.lineWidth = strokeWidth;
+        context.strokeStyle = strokeStyle.hex;
+        context.stroke();
+    }
     line(start, end, colour, strokeWidth) {
         let context = this._context;
         context.beginPath();

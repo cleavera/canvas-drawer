@@ -1,31 +1,44 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CanvasDrawer_1 = require("./CanvasDrawer");
-class Canvas {
-    constructor(canvas) {
+var CanvasDrawer_1 = require("./CanvasDrawer");
+var Canvas = (function () {
+    function Canvas(canvas) {
         this._canvas = canvas;
         this._drawer = new CanvasDrawer_1.CanvasDrawer(canvas.getContext('2d'));
     }
-    get width() {
-        return this._canvas.width;
-    }
-    get height() {
-        return this._canvas.height;
-    }
-    get drawer() {
-        return this._drawer;
-    }
-    clean() {
+    Object.defineProperty(Canvas.prototype, "width", {
+        get: function () {
+            return this._canvas.width;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Canvas.prototype, "height", {
+        get: function () {
+            return this._canvas.height;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Canvas.prototype, "drawer", {
+        get: function () {
+            return this._drawer;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Canvas.prototype.clean = function () {
         this._canvas.width = this._canvas.width;
-    }
-    draw(node) {
+    };
+    Canvas.prototype.draw = function (node) {
         node.draw(this.normalise.bind(this), this._drawer);
-    }
-    normalise(coordinate) {
+    };
+    Canvas.prototype.normalise = function (coordinate) {
         return {
             x: coordinate.x * this.width,
             y: coordinate.y * this.height
         };
-    }
-}
+    };
+    return Canvas;
+}());
 exports.Canvas = Canvas;

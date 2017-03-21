@@ -5,14 +5,10 @@
     "outDir": "dist",
     "rootDir": "./src",
     "sourceMap": false,
-    "declaration": true,
-    "experimentalDecorators": true,
+    "declaration": false,
     "moduleResolution": "node"
   },
   "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts",
-    "example",
-    "dist"
+    "../src"
   ]
 }

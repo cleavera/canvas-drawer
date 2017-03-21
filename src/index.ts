@@ -1,5 +1,7 @@
-import {Canvas} from './classes/Canvas'
+import {Canvas} from './classes/Canvas';
+import {Colour} from './classes/Colour';
 
 export {
-    Canvas
+    Canvas,
+    Colour
 }

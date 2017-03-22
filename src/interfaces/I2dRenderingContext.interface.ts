@@ -7,11 +7,13 @@ export interface I2dRenderingContext {
     textBaseline: string;
     arc(x: number, y: number, radius: number, startAngle: number, endAngle: number): void;
     beginPath(): void;
+    closePath(): void;
     fill(): void;
     fillText(text: string, x: number, y: number): void;
     lineTo(x: number, y: number): void;
     moveTo(x: number, y: number): void;
-    rect(x: number, y: number, width: number, height: number): void;
+    fillRect(x: number, y: number, width: number, height: number): void;
+    strokeRect(x: number, y: number, width: number, height: number): void;
     stroke(): void;
     strokeText(text: string, x: number, y: number): void;
 }

@@ -22,17 +22,17 @@ export class CanvasDrawer implements IDrawer {
         context.lineWidth = strokeWidth;
         context.strokeStyle = strokeStyle.hex;
         context.stroke();
+        context.closePath();
     }
 
     public rectangle(topLeft: ICoordinate, bottomRight: ICoordinate, colour: IColour, strokeWidth: number, strokeStyle: IColour): void {
         let context: I2dRenderingContext = this._context;
 
-        context.rect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
         context.fillStyle = colour.hex;
-        context.fill();
+        context.fillRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
         context.lineWidth = strokeWidth;
         context.strokeStyle = strokeStyle.hex;
-        context.stroke();
+        context.strokeRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
     }
 
     public line(start: ICoordinate, end: ICoordinate, colour: IColour, strokeWidth: number): void {
@@ -44,6 +44,7 @@ export class CanvasDrawer implements IDrawer {
         context.moveTo(start.x, start.y);
         context.lineTo(end.x, end.y);
         context.stroke();
+        context.closePath();
     }
 
     public text(position: ICoordinate, colour: IColour, text: string, align: string, font: string, baseline: string): void {

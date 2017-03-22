@@ -163,15 +163,15 @@
 	        context.lineWidth = strokeWidth;
 	        context.strokeStyle = strokeStyle.hex;
 	        context.stroke();
+	        context.closePath();
 	    };
 	    CanvasDrawer.prototype.rectangle = function (topLeft, bottomRight, colour, strokeWidth, strokeStyle) {
 	        var context = this._context;
-	        context.rect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
 	        context.fillStyle = colour.hex;
-	        context.fill();
+	        context.fillRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
 	        context.lineWidth = strokeWidth;
 	        context.strokeStyle = strokeStyle.hex;
-	        context.stroke();
+	        context.strokeRect(topLeft.x, topLeft.y, bottomRight.x - topLeft.x, bottomRight.y - topLeft.y);
 	    };
 	    CanvasDrawer.prototype.line = function (start, end, colour, strokeWidth) {
 	        var context = this._context;
@@ -181,6 +181,7 @@
 	        context.moveTo(start.x, start.y);
 	        context.lineTo(end.x, end.y);
 	        context.stroke();
+	        context.closePath();
 	    };
 	    CanvasDrawer.prototype.text = function (position, colour, text, align, font, baseline) {
 	        var context = this._context;
